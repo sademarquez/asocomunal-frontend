@@ -1,87 +1,170 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling para los enlaces del menú
-    document.querySelectorAll('nav a.nav-button').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault(); // Previene el comportamiento predeterminado del enlace
+// script.js
 
-            const targetId = this.getAttribute('href'); // Obtiene el ID del destino
-            const targetElement = document.querySelector(targetId); // Selecciona el elemento destino
+// Menú de Navegación Móvil (Hamburguesa)
+const navSlide = () => {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
 
-            if (targetElement) {
-                // Desplazamiento suave a la sección
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
+    if (burger && nav) {
+        burger.addEventListener('click', () => {
+            // Toggle Nav
+            nav.classList.toggle('nav-active');
+
+            // Animar Links
+            navLinks.forEach((link, index) => {
+                if (link.style.animation) {
+                    link.style.animation = '';
+                } else {
+                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+                }
+            });
+
+            // Animación del Burger
+            burger.classList.toggle('toggle');
         });
+    }
+};
+
+// Establecer el año actual en el pie de página
+const setYear = () => {
+    const yearSpan = document.getElementById('currentYear');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
+};
+
+// Variable global para el slider para poder destruirlo y recrearlo si es necesario
+let gallerySliderInstance = null;
+
+// Inicializar Tiny Slider
+function initializeTinySlider() {
+    const sliderContainer = document.querySelector('.tiny-slider');
+    if (!sliderContainer || sliderContainer.children.length === 0) { // No inicializar si no hay contenedor o no hay imágenes
+        console.log("Contenedor del carrusel no encontrado o vacío.");
+        return;
+    }
+
+    // Si ya existe una instancia, destrúyela antes de recrear
+    if (gallerySliderInstance) {
+        try {
+           gallerySliderInstance.destroy();
+        } catch(e) {
+            console.warn("No se pudo destruir la instancia anterior del slider:", e);
+        }
+    }
+    
+    gallerySliderInstance = tns({
+        container: '.tiny-slider',
+        items: 1,
+        slideBy: 'page',
+        autoplay: false, // Desactivado por defecto, puedes ponerlo a true
+        autoplayButtonOutput: false, // Ocultar botón de autoplay
+        controls: true, // Mostrar flechas de control
+        nav: true, // Mostrar puntos de navegación
+        mouseDrag: true,
+        responsive: {
+            600: { // A partir de 600px de ancho
+                items: 2,
+                edgePadding: 20,
+                gutter: 20
+            },
+            900: { // A partir de 900px de ancho
+                items: 3,
+                edgePadding: 30,
+                gutter: 30
+            }
+        }
     });
+}
 
-    // Desplazamiento suave para el botón "Ver Noticias Recientes"
-    const scrollBtn = document.querySelector('.scroll-btn');
-    if (scrollBtn) {
-        scrollBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    }
+// Cargar Propuestas y Galería desde data.json
+async function loadContentFromJson() {
+    try {
+        const response = await fetch('data.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
 
-    // Funcionalidad del Botón de Emergencia/Denuncias
-    const emergencyBtn = document.getElementById('emergencyBtn');
-    const emergencyForm = document.getElementById('emergencyForm');
-    const closePopupBtn = emergencyForm.querySelector('.close-popup-btn');
-    const submitDenunciaBtn = document.getElementById('submitDenuncia');
-    const denunciaText = document.getElementById('denunciaText');
+        // Cargar Propuestas
+        const proposalsGrid = document.querySelector('#propuestas .proposals-grid');
+        if (data.proposals && proposalsGrid) {
+            proposalsGrid.innerHTML = ''; // Limpiar
+            data.proposals.forEach(proposal => {
+                const card = document.createElement('div');
+                card.classList.add('proposal-card');
+                card.innerHTML = `
+                    <h3>${proposal.title}</h3>
+                    <p>${proposal.description}</p>
+                `;
+                proposalsGrid.appendChild(card);
+            });
+        } else {
+            console.warn("Sección de propuestas o datos de propuestas no encontrados.");
+        }
 
-    if (emergencyBtn && emergencyForm) {
-        emergencyBtn.addEventListener('click', function() {
-            emergencyForm.style.display = 'block'; // Muestra el formulario
-        });
-
-        closePopupBtn.addEventListener('click', function() {
-            emergencyForm.style.display = 'none'; // Oculta el formulario
-        });
-
-        // Enviar Denuncia (Simulación, en un entorno real necesitarías un backend)
-        submitDenunciaBtn.addEventListener('click', function() {
-            const denuncia = denunciaText.value.trim();
-            if (denuncia) {
-                // Simulación de envío: Podrías abrir WhatsApp con el mensaje preescrito
-                // ¡IMPORTANTE! Reemplaza '573XXXXXXXXX' con el número de WhatsApp real.
-                const whatsappNumber = '57320XXXXXXX'; // Tu número de WhatsApp de ASOCOMUNAL
-                const encodedDenuncia = encodeURIComponent(`🚨 Denuncia Rápida ASOCOMUNAL:\n\n${denuncia}\n\n`);
-                window.open(`https://wa.me/${whatsappNumber}?text=${encodedDenuncia}`, '_blank');
-
-                alert('Gracias por tu denuncia. Nos pondremos en contacto si es necesario.');
-                denunciaText.value = ''; // Limpia el textarea
-                emergencyForm.style.display = 'none'; // Oculta el formulario
+        // Cargar Imágenes de la Galería
+        const sliderContainer = document.querySelector('.tiny-slider');
+        if (data.galleryImages && sliderContainer) {
+            sliderContainer.innerHTML = ''; // Limpiar
+            data.galleryImages.forEach(image => {
+                const div = document.createElement('div');
+                const img = document.createElement('img');
+                img.src = image.src;
+                img.alt = image.alt;
+                // Opcional: añadir un título o descripción a cada imagen si lo tienes en el JSON
+                // if(image.title) {
+                //     const title = document.createElement('p');
+                //     title.textContent = image.title;
+                //     title.style.textAlign = 'center';
+                //     div.appendChild(title);
+                // }
+                div.appendChild(img);
+                sliderContainer.appendChild(div);
+            });
+            // Solo inicializar el slider si se cargaron imágenes
+            if (data.galleryImages.length > 0) {
+                initializeTinySlider();
             } else {
-                alert('Por favor, escribe tu denuncia.');
+                 console.log("No hay imágenes en la galería para mostrar.");
             }
-        });
+        } else {
+             console.warn("Contenedor del carrusel o datos de imágenes de galería no encontrados.");
+        }
+
+    } catch (error) {
+        console.error('Error al cargar el contenido desde JSON:', error);
+        // Aquí podrías tener un fallback si el JSON no carga,
+        // por ejemplo, mostrar contenido estático definido en el HTML.
     }
+}
 
-    // Simulación de envío de formulario de registro
-    const registrationForm = document.querySelector('.registration-form');
-    if (registrationForm) {
-        registrationForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Evita que el formulario se envíe realmente
 
-            // Aquí se recogerían los datos del formulario (nombre, email, etc.)
-            const nombre = document.getElementById('nombre').value;
-            const email = document.getElementById('email').value;
-
-            // En un entorno real, enviarías estos datos a un servidor
-            console.log('Datos de Registro (Simulación):', { nombre, email });
-            alert(`¡Gracias por registrarte, ${nombre}! En breve recibirás noticias de ASOCOMUNAL.`);
-
-            // Opcional: limpiar el formulario
-            registrationForm.reset();
+// Animaciones al hacer scroll
+const revealOnScroll = () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+            // Opcional: remover la clase si ya no es visible para re-animar
+            // else {
+            //     entry.target.classList.remove('visible');
+            // }
         });
-    }
+    }, { threshold: 0.1 }); // El 10% del elemento debe estar visible
+
+    document.querySelectorAll('.content-section, .proposal-card, .news-item, .carousel-container').forEach(section => {
+        section.classList.add('reveal'); // Clase base para la animación
+        observer.observe(section);
+    });
+};
+
+// Llamar a las funciones cuando el DOM esté cargado
+document.addEventListener('DOMContentLoaded', () => {
+    navSlide();
+    setYear();
+    loadContentFromJson(); // Carga propuestas y galería
+    revealOnScroll(); // Activa animaciones de scroll
 });

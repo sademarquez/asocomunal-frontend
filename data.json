@@ -1,0 +1,93 @@
+{
+    "siteInfo": {
+        "candidateName": "Ximena López Yule",
+        "slogan": "Defensora de Derechos Humanos | Candidata Cámara Territorial de Paz"
+    },
+    "socialMedia": [
+        {
+            "platform": "WhatsApp",
+            "url": "https://wa.me/TUNUMERODEWHATSAPP",
+            "iconClass": "fab fa-whatsapp"
+        },
+        {
+            "platform": "Facebook",
+            "url": "https://facebook.com/TUPERFILDEFACEBOOK",
+            "iconClass": "fab fa-facebook-f"
+        },
+        {
+            "platform": "Instagram",
+            "url": "https://instagram.com/TUPERFILDEINSTAGRAM",
+            "iconClass": "fab fa-instagram"
+        }
+    ],
+    "proposals": [
+        {
+            "title": "Voz de los Territorios y Víctimas",
+            "description": "Ser la voz de los territorios y las víctimas en el Congreso, para la exigibilidad de sus derechos y el cumplimiento de los acuerdos y pactos existentes."
+        },
+        {
+            "title": "Control Parlamentario para la Paz",
+            "description": "Hacer del control Parlamentario un instrumento, una oportunidad para la gestión en favor de los caucanos, vallunos y nariñenses, en clave a la construcción de la paz y la materialización de los acuerdos."
+        },
+        {
+            "title": "Gestión PDET y PATR",
+            "description": "Proponerme ser diligente en el Congreso de los municipios PDET; de los territorios y los ciudadanos para la gestión y materialización de las iniciativas contenidas del PATR (Plan de Acción para la Transformación Regional) antes de 2028."
+        },
+        {
+            "title": "Defensa de Derechos Humanos",
+            "description": "Fortalecer los mecanismos de protección para líderes sociales y defensores de DDHH, garantizando su labor vital en los territorios."
+        }
+    ],
+    "galleryImages": [
+        {
+            "src": "images/1.jpg",
+            "alt": "Ximena López Yule compartiendo con la comunidad",
+            "title": "Encuentro Comunitario"
+        },
+        {
+            "src": "images/2.jpg",
+            "alt": "Evento sobre paz territorial y derechos humanos",
+            "title": "Foro por la Paz"
+        },
+        {
+            "src": "images/3.jpg",
+            "alt": "Ximena López Yule en actividad de defensa de DDHH",
+            "title": "Acción por los Derechos"
+        },
+        {
+            "src": "images/4.jpg",
+            "alt": "Reunión de trabajo con líderes sociales",
+            "title": "Construyendo Juntos"
+        },
+        {
+            "src": "images/5.jpg",
+            "alt": "Participación en caminata por la paz",
+            "title": "Caminando por la Paz"
+        },
+        {
+            "src": "images/6.jpg",
+            "alt": "Imagen de la galería 6",
+            "title": "Título de la imagen 6"
+        },
+        {
+            "src": "images/7.jpg",
+            "alt": "Imagen de la galería 7",
+            "title": "Título de la imagen 7"
+        },
+        {
+            "src": "images/8.jpg",
+            "alt": "Imagen de la galería 8",
+            "title": "Título de la imagen 8"
+        },
+        {
+            "src": "images/9.jpg",
+            "alt": "Imagen de la galería 9",
+            "title": "Título de la imagen 9"
+        },
+        {
+            "src": "images/10.jpg",
+            "alt": "Imagen de la galería 10",
+            "title": "Título de la imagen 10"
+        }
+    ]
+}

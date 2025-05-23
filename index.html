@@ -3,172 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASOCOMUNAL Santander de Quilichao</title>
+    <title>Ximena López Yule - Defensora de Derechos Humanos</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+    </head>
 <body>
 
     <header>
         <div class="container">
             <div class="logo">
-                <img src="logo.jpg" alt="Logo ASOCOMUNAL">
-                <h1>ASOCOMUNAL <br> Santander de Quilichao</h1>
+                <h1>Ximena López Yule</h1>
+                <p>Defensora de DDHH | Candidata Cámara Territorial de Paz</p>
             </div>
             <nav>
-                <ul>
-                    <li><a href="#inicio" class="nav-button">Inicio</a></li>
+                <ul class="nav-links">
+                    <li><a href="#quien-soy" class="nav-button">Quién Soy</a></li>
+                    <li><a href="#propuestas" class="nav-button">Mis Propuestas</a></li>
+                    <li><a href="#galeria" class="nav-button">Galería</a></li>
                     <li><a href="#noticias" class="nav-button">Noticias</a></li>
-                    <li><a href="#campanas" class="nav-button">Campañas</a></li>
-                    <li><a href="#emisora" class="nav-button">Emisora</a></li>
+                    <li><a href="#radio" class="nav-button">Escúchanos</a></li>
                     <li><a href="#contacto" class="nav-button">Contacto</a></li>
-                    <li><a href="#registro" class="nav-button">Registro</a></li>
                 </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
             </nav>
         </div>
     </header>
 
-    <section id="inicio" class="hero-section">
+    <section id="hero">
         <div class="container">
-            <h2>¡Bienvenidos a ASOCOMUNAL!</h2>
-            <p>Trabajando juntos por el desarrollo y bienestar de nuestras comunidades en Santander de Quilichao.</p>
-            <a href="#noticias" class="btn primary-btn scroll-btn">Ver Noticias Recientes</a>
+            <h2>"Seré la voz de las víctimas en el Congreso"</h2>
+            <a href="#propuestas" class="cta-button">Conoce Mis Propuestas</a>
+        </div>
+    </section>
+
+    <section id="quien-soy" class="content-section">
+        <div class="container">
+            <h2>Quién Soy</h2>
+            <div class="bio-content">
+                <p>Soy Ximena López Yule, líder social y defensora de derechos humanos, con estudios en derecho y filosofía de la Universidad del Cauca.</p>
+                <p>He acompañado los procesos previos a la firma de la paz, la socialización de los acuerdos y el proceso de implementación en la construcción de los PDET (Planes de Desarrollo con Enfoque Territorial). Soy facilitadora de paz y defensora permanente de los derechos de las víctimas.</p>
+                <p>Mi compromiso es firme con las comunidades y la construcción de una paz duradera y con justicia social.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="propuestas" class="content-section">
+        <div class="container">
+            <h2>Mis Propuestas</h2>
+            <div class="proposals-grid">
+                </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="content-section">
+        <div class="container">
+            <h2>Galería</h2>
+            <div class="carousel-container">
+                <div class="tiny-slider">
+                    </div>
+            </div>
         </div>
     </section>
 
     <section id="noticias" class="content-section">
         <div class="container">
-            <h2>Nuestras Últimas Noticias</h2>
-            <div class="news-grid">
-                <div class="news-card">
-                    <img src="iglesia.jpg" alt="Noticia 1">
-                    <h3>Inauguración de Salon Comunal en Vereda El Guayabito</h3>
-                    <p>Con gran alegría se inauguró el nuevo salón comunal, un espacio para el encuentro y la organización comunitaria.</p>
-                    <a href="#" class="btn secondary-btn">Leer Más</a>
+            <h2>Noticias</h2>
+            <div class="news-item">
+                <h3>"Seré la voz de las víctimas en el Congreso": Ximena López Yule</h3>
+                <p>Un artículo destacado sobre mi candidatura y compromiso con las víctimas del conflicto.</p>
+                <a href="https://www.proclamadelpacifico.com/sere-la-voz-de-las-victimas-en-el-congreso-ximena-lopez-yule/" target="_blank" class="news-button">Leer Más</a>
                 </div>
-                <div class="news-card">
-                    <img src="niños.jpg" alt="Noticia 2">
-                    <h3>Jornada de Vacunación para Mascotas en el Barrio Porvenir</h3>
-                    <p>Campaña exitosa de salud animal gracias a la colaboración de la comunidad y la secretaría de salud.</p>
-                    <a href="#" class="btn secondary-btn">Leer Más</a>
-                </div>
-                <div class="news-card">
-                    <img src="reunion.jpg">
-                    <h3>ASOCOMUNAL presente en el Consejo de Seguridad Ciudadana</h3>
-                    <p>Participamos activamente en la búsqueda de soluciones para mejorar la seguridad en nuestros territorios.</p>
-                    <a href="#" class="btn secondary-btn">Leer Más</a>
-                </div>
-            </div>
         </div>
     </section>
 
-    <section id="campanas" class="content-section yellow-bg">
+    <section id="radio" class="content-section">
         <div class="container">
-            <h2>Campañas Actuales</h2>
-            <div class="campaign-grid">
-                <div class="campaign-card">
-                    <h3>Campaña de Reforestación "Un Árbol, Una Vida"</h3>
-                    <p>Únete a nuestra iniciativa para sembrar árboles y proteger nuestros recursos naturales.</p>
-                    <img src="quilichao.jpg" alt="Campaña Reforestación">
-                    <a href="#" class="btn primary-btn">Participar</a>
-                </div>
-                <div class="campaign-card">
-                    <h3>Campaña de Reciclaje "Quilichao Limpio"</h3>
-                    <p>Ayúdanos a mantener nuestro municipio limpio y fomenta el reciclaje en tu hogar.</p>
-                    <img src="calle.jpg" alt="Campaña Reciclaje">
-                    <a href="#" class="btn primary-btn">Más Información</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="emisora" class="content-section dark-bg">
-        <div class="container">
-            <h2>Escucha Emisora Uma Kiwe</h2>
-            <p>Sintoniza la voz de nuestra comunidad. Noticias, música y programas de interés local.</p>
-            <div class="audio-player">
-                <audio controls>
-                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                    Tu navegador no soporta el elemento de audio.
-                </audio>
-                <p>Si el reproductor no funciona, puedes escucharla en su sitio web:</p>
-                <a href="https://www.umakiweestereo.org/" target="_blank" class="btn secondary-btn">Ir a Uma Kiwe Estéreo</a>
+            <h2>Escúchanos en Umakiwe Estéreo</h2>
+            <p>Sintoniza nuestra emisora para estar al tanto de nuestras actividades y propuestas.</p>
+            <div class="radio-player">
+                <iframe src="https://streaminghd.co/user/umakiwe" frameborder="0" scrolling="no" allowfullscreen="" style="width:100%; height:150px;"></iframe>
             </div>
         </div>
     </section>
 
     <section id="contacto" class="content-section">
         <div class="container">
-            <h2>Contáctanos</h2>
-            <p>¿Tienes alguna pregunta o sugerencia? ¡Estamos aquí para escucharte!</p>
-            <div class="contact-info">
-                <p><i class="fas fa-envelope"></i> Email: info@asocomunalquilichao.org</p>
-                <p><i class="fas fa-phone"></i> Teléfono: +57 3XX XXX XXXX</p>
-                <p><i class="fas fa-map-marker-alt"></i> Dirección: [Dirección de la Sede]</p>
-            </div>
+            <h2>Únete y Participa</h2>
+            <p>Tu apoyo es fundamental para llevar la voz de las víctimas al Congreso. Sígueme en mis redes sociales y contáctame.</p>
             <div class="social-links">
-                <a href="https://wa.me/573XXXXXXXXX" target="_blank" class="social-btn whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-                <a href="https://www.facebook.com/p/Asocomunal-Santander-De-Quilichao-100086217617274/" target="_blank" class="social-btn facebook-btn">
-                    <i class="fab fa-facebook-f"></i> Facebook
-                </a>
+                <a href="https://wa.me/TUNUMERODEWHATSAPP" target="_blank" class="social-button whatsapp">WhatsApp</a>
+                <a href="https://facebook.com/TUPERFILDEFACEBOOK" target="_blank" class="social-button facebook">Facebook</a>
+                <a href="https://instagram.com/TUPERFILDEINSTAGRAM" target="_blank" class="social-button instagram">Instagram</a>
+                </div>
             </div>
-        </div>
     </section>
-
-    <section id="registro" class="content-section yellow-bg">
-        <div class="container">
-            <h2>Registro de Usuarios</h2>
-            <p>Regístrate para recibir nuestras noticias y participar en las actividades de ASOCOMUNAL.</p>
-            <form class="registration-form">
-                <div class="form-group">
-                    <label for="nombre">Nombre Completo:</label>
-                    <input type="text" id="nombre" name="nombre" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Correo Electrónico:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <label for="barrio">Barrio/Vereda:</label>
-                    <input type="text" id="barrio" name="barrio">
-                </div>
-                <button type="submit" class="btn primary-btn">Registrarme</button>
-            </form>
-            <p class="form-note">Nota: Este formulario es solo para demostración. Un sistema real de registro requiere un backend.</p>
-        </div>
-    </section>
-
-    <div class="emergency-button-container">
-        <button id="emergencyBtn" class="emergency-btn">
-            <i class="fas fa-exclamation-triangle"></i> Denuncia Rápida
-        </button>
-        <div id="emergencyForm" class="emergency-form-popup">
-            <h3>Envía tu Denuncia</h3>
-            <p>Describe brevemente tu situación de emergencia o denuncia.</p>
-            <textarea id="denunciaText" placeholder="Escribe tu denuncia aquí..." rows="5"></textarea>
-            <button id="submitDenuncia" class="btn primary-btn">Enviar Denuncia</button>
-            <p class="form-note">Esta función enviaría un mensaje a un contacto predefinido (ej. WhatsApp) o un sistema backend.</p>
-            <button class="close-popup-btn">&times;</button>
-        </div>
-    </div>
-
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 ASOCOMUNAL Santander de Quilichao. Todos los derechos reservados.</p>
-            <div class="footer-links">
-                <a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a>
-            </div>
+            <p>&copy; <span id="currentYear"></span> Ximena López Yule. Todos los derechos reservados.</p>
+            <p>Diseño web inspirado en la comunidad.</p>
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
